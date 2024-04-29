@@ -42,8 +42,8 @@
             femaleButton = new RadioButton();
             maleButton = new RadioButton();
             weightLabel = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            weightBox = new TextBox();
+            heightBox = new TextBox();
             heightLabel = new Label();
             registerButton = new Button();
             passwordLabel = new Label();
@@ -65,8 +65,8 @@
             bigPanel.Controls.Add(lifestylePanel);
             bigPanel.Controls.Add(genderPanel);
             bigPanel.Controls.Add(weightLabel);
-            bigPanel.Controls.Add(textBox1);
-            bigPanel.Controls.Add(textBox2);
+            bigPanel.Controls.Add(weightBox);
+            bigPanel.Controls.Add(heightBox);
             bigPanel.Controls.Add(heightLabel);
             bigPanel.Controls.Add(registerButton);
             bigPanel.Controls.Add(passwordLabel);
@@ -213,19 +213,19 @@
             weightLabel.TabIndex = 10;
             weightLabel.Text = "Weight";
             // 
-            // textBox1
+            // weightBox
             // 
-            textBox1.Location = new Point(84, 149);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 4;
+            weightBox.Location = new Point(84, 149);
+            weightBox.Name = "weightBox";
+            weightBox.Size = new Size(100, 23);
+            weightBox.TabIndex = 4;
             // 
-            // textBox2
+            // heightBox
             // 
-            textBox2.Location = new Point(84, 120);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
+            heightBox.Location = new Point(84, 120);
+            heightBox.Name = "heightBox";
+            heightBox.Size = new Size(100, 23);
+            heightBox.TabIndex = 3;
             // 
             // heightLabel
             // 
@@ -244,6 +244,7 @@
             registerButton.TabIndex = 8;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += registerButton_Click;
             // 
             // passwordLabel
             // 
@@ -317,8 +318,8 @@
         private TextBox passwordBox;
         private TextBox usernameBox;
         private Label usernameLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox weightBox;
+        private TextBox heightBox;
         private Label heightLabel;
         private RadioButton femaleButton;
         private RadioButton maleButton;

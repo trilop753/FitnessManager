@@ -1,5 +1,4 @@
-﻿
-namespace FitnessManager
+﻿namespace FitnessManager.Classes
 {
     public class User
     {
@@ -10,7 +9,7 @@ namespace FitnessManager
 
 
         private static int id_generator = 1;
-    
+
         public User(string userName, string password, Account? account)
         {
             Id = id_generator++;
