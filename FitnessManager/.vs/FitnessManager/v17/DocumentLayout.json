@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,11 +19,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
+              "Title": "StartForm.cs [Design]",
+              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\StartForm.cs",
+              "RelativeDocumentMoniker": "StartForm.cs",
+              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\StartForm.cs [Design]*",
+              "RelativeToolTip": "StartForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T15:37:11.709Z",
               "EditorCaption": " [Design]"
