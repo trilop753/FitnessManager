@@ -103,7 +103,7 @@
             panel1.Controls.Add(passwordBox);
             panel1.Controls.Add(usernameBox);
             panel1.Controls.Add(usernameLabel);
-            panel1.Location = new Point(249, 128);
+            panel1.Location = new Point(225, 200);
             panel1.Name = "panel1";
             panel1.Size = new Size(278, 188);
             panel1.TabIndex = 6;
@@ -117,6 +117,7 @@
             registerLabel.TabIndex = 7;
             registerLabel.TabStop = true;
             registerLabel.Text = "Register";
+            registerLabel.LinkClicked += registerLabel_LinkClicked;
             // 
             // loginButton
             // 
@@ -132,7 +133,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(734, 561);
             Controls.Add(panel1);
             Name = "StartForm";
             Text = "Form1";
