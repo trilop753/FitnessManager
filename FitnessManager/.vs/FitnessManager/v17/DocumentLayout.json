@@ -7,20 +7,28 @@
       "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\classes\\databaseaccess\\accountdatabasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:classes\\databaseaccess\\accountdatabasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\classes\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:classes\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\classes\\databaseaccess\\userdatabasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:classes\\databaseaccess\\userdatabasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\classes\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:classes\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\classes\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:classes\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|solutionrelative:registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2854F12B-0708-4167-B312-D26E0D8B8E5A}|FitnessManager.csproj|c:\\school\\4. semester\\pv178\\project\\fitnessmanager\\fitnessmanager\\startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -34,24 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "StartForm.cs",
               "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\StartForm.cs",
               "RelativeDocumentMoniker": "StartForm.cs",
               "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\StartForm.cs",
               "RelativeToolTip": "StartForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T16:26:59.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "RegisterForm.cs [Design]",
               "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\RegisterForm.cs",
               "RelativeDocumentMoniker": "RegisterForm.cs",
@@ -63,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "StartForm.cs [Design]",
               "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\StartForm.cs",
               "RelativeDocumentMoniker": "StartForm.cs",
@@ -92,32 +100,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Classes\\Models\\User.cs",
+              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\Models\\User.cs",
+              "RelativeToolTip": "Classes\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-29T16:46:57.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Account.cs",
-              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\Account.cs",
-              "RelativeDocumentMoniker": "Classes\\Account.cs",
-              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\Account.cs",
-              "RelativeToolTip": "Classes\\Account.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
+              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "Classes\\Models\\Account.cs",
+              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\Models\\Account.cs",
+              "RelativeToolTip": "Classes\\Models\\Account.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T16:45:01.463Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\User.cs",
-              "RelativeDocumentMoniker": "Classes\\User.cs",
-              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\User.cs",
-              "RelativeToolTip": "Classes\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "UserDatabaseManager.cs",
+              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\DatabaseAccess\\UserDatabaseManager.cs",
+              "RelativeDocumentMoniker": "Classes\\DatabaseAccess\\UserDatabaseManager.cs",
+              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\DatabaseAccess\\UserDatabaseManager.cs",
+              "RelativeToolTip": "Classes\\DatabaseAccess\\UserDatabaseManager.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T16:46:57.119Z",
+              "WhenOpened": "2024-04-29T19:55:44.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountDatabaseManager.cs",
+              "DocumentMoniker": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\DatabaseAccess\\AccountDatabaseManager.cs",
+              "RelativeDocumentMoniker": "Classes\\DatabaseAccess\\AccountDatabaseManager.cs",
+              "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\Classes\\DatabaseAccess\\AccountDatabaseManager.cs",
+              "RelativeToolTip": "Classes\\DatabaseAccess\\AccountDatabaseManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-29T20:35:44.321Z",
               "EditorCaption": ""
             },
             {
@@ -128,7 +162,7 @@
               "RelativeDocumentMoniker": "RegisterForm.cs",
               "ToolTip": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\RegisterForm.cs",
               "RelativeToolTip": "RegisterForm.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAC0AAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEoAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T16:41:46.243Z",
               "EditorCaption": ""

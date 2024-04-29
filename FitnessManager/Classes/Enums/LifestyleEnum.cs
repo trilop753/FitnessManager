@@ -1,6 +1,4 @@
-﻿
-
-namespace FitnessManager.Classes
+﻿namespace FitnessManager.Classes.Enums
 {
     public enum Lifestyle
     {

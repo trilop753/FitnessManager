@@ -1,21 +1,24 @@
-﻿namespace FitnessManager.Classes
+﻿using System.Text.Json.Serialization;
+
+namespace FitnessManager.Classes.Models
 {
     public class User
     {
         public int Id { get; private set; }
         public string UserName { get; private set; }
         public string Password { get; private set; }
+
+        [JsonIgnore]
         public Account? Account { get; private set; }
 
 
-        private static int id_generator = 1;
 
-        public User(string userName, string password, Account? account)
+        public User(string userName, string password)
         {
-            Id = id_generator++;
             UserName = userName;
             Password = password;
-            Account = account;
         }
+
+        private User() { }
     }
 }

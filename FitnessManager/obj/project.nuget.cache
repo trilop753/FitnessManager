@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Q8+tIrBmxMW1kyGmnQwfb+f48czMWEWC+chLpSp7orgbdtcAuB3/NS7Yn71cSObuojfVBQHp9vPkKSZtybTebw==",
+  "dgSpecHash": "BmoO/YOtG6hEZkF47D4jkW67IKkLzkRHGMsNBi73thLydT+9VHjte/DGP+RkJ7SXmJU3KuaVG0K0FlZE0RGOVQ==",
   "success": true,
   "projectFilePath": "C:\\School\\4. Semester\\pv178\\Project\\FitnessManager\\FitnessManager\\FitnessManager.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Maroš Pavlík\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
+    "C:\\Users\\Maroš Pavlík\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.118\\stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512",
+    "C:\\Users\\Maroš Pavlík\\.nuget\\packages\\system.data.sqlite.core\\1.0.118\\system.data.sqlite.core.1.0.118.nupkg.sha512"
+  ],
   "logs": []
 }
