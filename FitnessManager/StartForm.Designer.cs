@@ -94,6 +94,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.PaleGreen;
             panel1.Controls.Add(registerLabel);
             panel1.Controls.Add(loginButton);
@@ -103,7 +104,7 @@
             panel1.Controls.Add(passwordBox);
             panel1.Controls.Add(usernameBox);
             panel1.Controls.Add(usernameLabel);
-            panel1.Location = new Point(225, 200);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(278, 188);
             panel1.TabIndex = 6;
@@ -127,13 +128,14 @@
             loginButton.TabIndex = 6;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += loginButton_Click;
             // 
             // StartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(734, 561);
+            ClientSize = new Size(304, 211);
             Controls.Add(panel1);
             Name = "StartForm";
             Text = "Form1";

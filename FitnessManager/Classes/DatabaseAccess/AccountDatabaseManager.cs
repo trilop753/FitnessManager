@@ -12,7 +12,7 @@ namespace FitnessManager.Classes.DatabaseAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into Account (UserId, Height, Weight, Gender, Lifestyle, GainMuscles) values (@UserId, @Height, @Weight, @IsMale, @Lifestyle, @GainMuscles)", acc);
+                cnn.Execute("insert into Account (UserId, Height, Weight, Age, Gender, Lifestyle, GainMuscles) values (@UserId, @Height, @Weight, @Age, @IsMale, @Lifestyle, @GainMuscles)", acc);
             }
         }
 
@@ -25,14 +25,14 @@ namespace FitnessManager.Classes.DatabaseAccess
             }
         }
 
-        public static List<User> GetAllUsers()
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = cnn.Query<User>("select * from User", new DynamicParameters());
-                return output.ToList();
-            }
-        }
+        //public static List<User> GetAllUsers()
+        //{
+        //    using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+        //    {
+        //        var output = cnn.Query<User>("select * from User", new DynamicParameters());
+        //        return output.ToList();
+        //    }
+        //}
 
         private static string LoadConnectionString(string cs = "Default")
         {

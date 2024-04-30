@@ -8,6 +8,16 @@ namespace FitnessManager.Classes.DatabaseAccess
 {
     public static class UserDatabaseManager
     {
+
+        public static int GetCount()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int count = cnn.QuerySingle<int>("SELECT COUNT(Id) FROM User");
+                return count;
+            }
+        }
+
         public static User GetUser(string username)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -17,11 +27,29 @@ namespace FitnessManager.Classes.DatabaseAccess
             }
         }
 
+        public static bool UserExists(string username)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int count = cnn.QuerySingleOrDefault<int>("SELECT COUNT(Id) FROM User WHERE Username = @Username", new { Username = username });
+                return count > 0;
+            }
+        }
+
+        public static string GetPassword(string username)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string password = cnn.QuerySingle<string>("SELECT Password FROM User WHERE Username = @Username", new { Username = username });
+                return password;
+            }
+        }
+
         public static void AddUser(User user)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into User (UserName, Password) values (@UserName, @Password)", user);
+                cnn.Execute("INSERT INTO User (UserName, Password) VALUES (@UserName, @Password)", user);
             }
         }
 
@@ -29,7 +57,7 @@ namespace FitnessManager.Classes.DatabaseAccess
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<User>("select * from User", new DynamicParameters());
+                var output = cnn.Query<User>("SELECT * FROM User", new DynamicParameters());
                 return output.ToList();
             }
         }

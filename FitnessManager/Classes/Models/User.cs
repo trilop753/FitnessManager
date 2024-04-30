@@ -7,8 +7,6 @@ namespace FitnessManager.Classes.Models
         public int Id { get; private set; }
         public string UserName { get; private set; }
         public string Password { get; private set; }
-
-        [JsonIgnore]
         public Account? Account { get; private set; }
 
 
@@ -20,5 +18,13 @@ namespace FitnessManager.Classes.Models
         }
 
         private User() { }
+
+        public void LinkAccount(Account account)
+        {
+            if (Account is null)
+            {
+                Account = account;
+            }
+        }
     }
 }

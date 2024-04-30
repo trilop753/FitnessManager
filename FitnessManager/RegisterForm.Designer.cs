@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             bigPanel = new Panel();
+            ageLabel = new Label();
+            ageBox = new TextBox();
             wantPanel = new Panel();
             wantLabel = new Label();
             muscleButton = new RadioButton();
@@ -59,8 +61,9 @@
             // 
             // bigPanel
             // 
-            bigPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             bigPanel.BackColor = Color.PaleGreen;
+            bigPanel.Controls.Add(ageLabel);
+            bigPanel.Controls.Add(ageBox);
             bigPanel.Controls.Add(wantPanel);
             bigPanel.Controls.Add(lifestylePanel);
             bigPanel.Controls.Add(genderPanel);
@@ -74,20 +77,37 @@
             bigPanel.Controls.Add(passwordBox);
             bigPanel.Controls.Add(usernameBox);
             bigPanel.Controls.Add(usernameLabel);
-            bigPanel.Location = new Point(153, 113);
+            bigPanel.Location = new Point(12, 12);
             bigPanel.Name = "bigPanel";
-            bigPanel.Size = new Size(403, 303);
+            bigPanel.Size = new Size(400, 287);
             bigPanel.TabIndex = 7;
+            // 
+            // ageLabel
+            // 
+            ageLabel.AutoSize = true;
+            ageLabel.Location = new Point(47, 181);
+            ageLabel.Name = "ageLabel";
+            ageLabel.Size = new Size(28, 15);
+            ageLabel.TabIndex = 12;
+            ageLabel.Text = "Age";
+            ageLabel.UseMnemonic = false;
+            // 
+            // ageBox
+            // 
+            ageBox.Location = new Point(84, 178);
+            ageBox.Name = "ageBox";
+            ageBox.Size = new Size(100, 23);
+            ageBox.TabIndex = 5;
             // 
             // wantPanel
             // 
             wantPanel.Controls.Add(wantLabel);
             wantPanel.Controls.Add(muscleButton);
             wantPanel.Controls.Add(fatButton);
-            wantPanel.Location = new Point(235, 168);
+            wantPanel.Location = new Point(247, 168);
             wantPanel.Name = "wantPanel";
             wantPanel.Size = new Size(123, 87);
-            wantPanel.TabIndex = 7;
+            wantPanel.TabIndex = 100;
             // 
             // wantLabel
             // 
@@ -104,7 +124,7 @@
             muscleButton.Location = new Point(28, 31);
             muscleButton.Name = "muscleButton";
             muscleButton.Size = new Size(95, 19);
-            muscleButton.TabIndex = 17;
+            muscleButton.TabIndex = 11;
             muscleButton.TabStop = true;
             muscleButton.Text = "Gain muscles";
             muscleButton.UseVisualStyleBackColor = true;
@@ -115,7 +135,7 @@
             fatButton.Location = new Point(28, 56);
             fatButton.Name = "fatButton";
             fatButton.Size = new Size(66, 19);
-            fatButton.TabIndex = 18;
+            fatButton.TabIndex = 12;
             fatButton.TabStop = true;
             fatButton.Text = "Lose fat";
             fatButton.UseVisualStyleBackColor = true;
@@ -126,10 +146,10 @@
             lifestylePanel.Controls.Add(sedentaryButton);
             lifestylePanel.Controls.Add(mediumButton);
             lifestylePanel.Controls.Add(activeButton);
-            lifestylePanel.Location = new Point(227, 62);
+            lifestylePanel.Location = new Point(239, 62);
             lifestylePanel.Name = "lifestylePanel";
             lifestylePanel.Size = new Size(119, 100);
-            lifestylePanel.TabIndex = 6;
+            lifestylePanel.TabIndex = 100;
             // 
             // lifestyleLabel
             // 
@@ -146,7 +166,7 @@
             sedentaryButton.Location = new Point(36, 20);
             sedentaryButton.Name = "sedentaryButton";
             sedentaryButton.Size = new Size(80, 19);
-            sedentaryButton.TabIndex = 13;
+            sedentaryButton.TabIndex = 8;
             sedentaryButton.TabStop = true;
             sedentaryButton.Text = "Sedentary ";
             sedentaryButton.UseVisualStyleBackColor = true;
@@ -157,7 +177,7 @@
             mediumButton.Location = new Point(36, 45);
             mediumButton.Name = "mediumButton";
             mediumButton.Size = new Size(70, 19);
-            mediumButton.TabIndex = 14;
+            mediumButton.TabIndex = 9;
             mediumButton.TabStop = true;
             mediumButton.Text = "Medium";
             mediumButton.UseVisualStyleBackColor = true;
@@ -168,7 +188,7 @@
             activeButton.Location = new Point(36, 70);
             activeButton.Name = "activeButton";
             activeButton.Size = new Size(58, 19);
-            activeButton.TabIndex = 15;
+            activeButton.TabIndex = 10;
             activeButton.TabStop = true;
             activeButton.Text = "Active";
             activeButton.UseVisualStyleBackColor = true;
@@ -177,10 +197,10 @@
             // 
             genderPanel.Controls.Add(femaleButton);
             genderPanel.Controls.Add(maleButton);
-            genderPanel.Location = new Point(47, 178);
+            genderPanel.Location = new Point(47, 207);
             genderPanel.Name = "genderPanel";
             genderPanel.Size = new Size(137, 26);
-            genderPanel.TabIndex = 5;
+            genderPanel.TabIndex = 100;
             // 
             // femaleButton
             // 
@@ -188,7 +208,7 @@
             femaleButton.Location = new Point(71, 4);
             femaleButton.Name = "femaleButton";
             femaleButton.Size = new Size(63, 19);
-            femaleButton.TabIndex = 12;
+            femaleButton.TabIndex = 7;
             femaleButton.TabStop = true;
             femaleButton.Text = "Female";
             femaleButton.UseVisualStyleBackColor = true;
@@ -199,7 +219,7 @@
             maleButton.Location = new Point(3, 4);
             maleButton.Name = "maleButton";
             maleButton.Size = new Size(51, 19);
-            maleButton.TabIndex = 11;
+            maleButton.TabIndex = 6;
             maleButton.TabStop = true;
             maleButton.Text = "Male";
             maleButton.UseVisualStyleBackColor = true;
@@ -238,10 +258,10 @@
             // 
             // registerButton
             // 
-            registerButton.Location = new Point(149, 225);
+            registerButton.Location = new Point(171, 239);
             registerButton.Name = "registerButton";
             registerButton.Size = new Size(57, 30);
-            registerButton.TabIndex = 8;
+            registerButton.TabIndex = 13;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = true;
             registerButton.Click += registerButton_Click;
@@ -293,10 +313,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(734, 561);
+            ClientSize = new Size(424, 311);
             Controls.Add(bigPanel);
             Name = "RegisterForm";
             Text = "RegisterForm";
+            FormClosed += RegisterForm_FormClosed;
             bigPanel.ResumeLayout(false);
             bigPanel.PerformLayout();
             wantPanel.ResumeLayout(false);
@@ -333,5 +354,7 @@
         private Panel genderPanel;
         private Panel wantPanel;
         private Panel lifestylePanel;
+        private Label ageLabel;
+        private TextBox ageBox;
     }
 }
