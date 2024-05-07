@@ -1,4 +1,5 @@
-﻿using FitnessManager.Classes.DatabaseAccess;
+﻿using FitnessManager.Classes.Authentication;
+using FitnessManager.Classes.DatabaseAccess;
 using FitnessManager.Classes.Enums;
 using FitnessManager.Classes.Models;
 
@@ -24,7 +25,7 @@ namespace FitnessManager
             this.Close();
         }
 
-        private bool checkAllFilled()
+        private bool CheckAllFilled()
         {
             if (string.IsNullOrWhiteSpace(usernameBox.Text) ||
                 string.IsNullOrWhiteSpace(passwordBox.Text) ||
@@ -42,7 +43,7 @@ namespace FitnessManager
 
         private bool Register()
         {
-            if (!checkAllFilled())
+            if (!CheckAllFilled())
             {
                 MessageBox.Show("Please fill all information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -75,19 +76,26 @@ namespace FitnessManager
                 MessageBox.Show("User with this username already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            User RegisteredUser = new User(usernameBox.Text, passwordBox.Text);
-            UserDatabaseManager.AddUser(RegisteredUser);
-            RegisteredUser = UserDatabaseManager.GetUser(RegisteredUser.UserName);
+            string passwordHashed = Authenticator.HashPassword(passwordBox.Text);
 
+            User registeredUser = new User(usernameBox.Text, passwordHashed);
+            UserDatabaseManager.AddUser(registeredUser);
 
-            Account newAccount = new Account(RegisteredUser.Id, height, weight, age, isMale, lifestyle, gainMuscles);
-            AccountDatabaseManager.AddAccount(newAccount);
+            registeredUser = UserDatabaseManager.GetUser(registeredUser.UserName);
+
+            Account newAccount = new Account(registeredUser.Id, height, weight, age, isMale, lifestyle, gainMuscles);
+
+            newAccount.SetMetrics();
+            newAccount.SetMacros();
+            registeredUser.LinkAccount(newAccount);
+
+            DatabaseManager.AddRegisteredUserAccount(registeredUser);
             return true;
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Starter.Close();
+            Starter.Show();
         }
     }
 }

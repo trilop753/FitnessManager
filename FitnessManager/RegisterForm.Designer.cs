@@ -289,6 +289,7 @@
             // 
             passwordBox.Location = new Point(84, 91);
             passwordBox.Name = "passwordBox";
+            passwordBox.PasswordChar = '*';
             passwordBox.Size = new Size(100, 23);
             passwordBox.TabIndex = 2;
             // 

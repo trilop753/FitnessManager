@@ -6,33 +6,30 @@ using System.Data.SQLite;
 
 namespace FitnessManager.Classes.DatabaseAccess
 {
-    public static class AccountDatabaseManager
+    public static class CurrentMacrosDatabaseManager
     {
-        public async static void AddAccount(Account acc)
+        public static void AddCurrentMacros(CurrentMacros cm)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                await cnn.ExecuteAsync("insert into Account (UserId, Height, Weight, Age, Gender, Lifestyle, GainMuscles) values (@UserId, @Height, @Weight, @Age, @Gender, @Lifestyle, @GainMuscles)", acc);
+                cnn.Execute("INSERT INTO CurrentMacros (UserId, Calories, Carbs, Fats, Proteins) values (@UserId, @Calories, @Carbs, @Fats, @Proteins)", cm);
             }
         }
-
-        public static Account GetAccount(int userId)
+        public static CurrentMacros GetCurrentMacros(int userId)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                Account output = cnn.QuerySingle<Account>("SELECT * FROM Account WHERE UserId = @UserId", new { UserId = userId });
+                CurrentMacros output = cnn.QuerySingle<CurrentMacros>("SELECT * FROM CurrentMacros WHERE UserId = @UserId", new { UserId = userId });
                 return output;
             }
         }
-
-        public static void UpdateAccount(Account acc)
+        public static void UpdateCurrentMacros(CurrentMacros cm)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE Account SET Height = @Height, Weight = @Weight, Age = @Age, Gender = @Gender, Lifestyle = @Lifestyle, GainMuscles = @GainMuscles WHERE UserId = @UserId", acc);
+                cnn.Execute("UPDATE CurrentMacros SET Calories = @Calories, Carbs = @Carbs, Fats = @Fats, Proteins = @Proteins WHERE UserId = @UserId", cm);
             }
         }
-
         private static string LoadConnectionString(string cs = "Default")
         {
             return ConfigurationManager.ConnectionStrings[cs].ConnectionString;

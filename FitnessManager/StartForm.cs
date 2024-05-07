@@ -1,5 +1,9 @@
+using FitnessManager.Classes.Authentication;
 using FitnessManager.Classes.DatabaseAccess;
 using FitnessManager.Classes.Models;
+using Microsoft.Win32;
+using static Dapper.SqlMapper;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FitnessManager
 {
@@ -13,8 +17,15 @@ namespace FitnessManager
         private void registerLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegisterForm register = new RegisterForm(this);
-            this.Hide();
+
+            register.StartPosition = FormStartPosition.Manual;
+
+            int newX = this.Location.X;
+            int newY = this.Location.Y;
+
+            register.Location = new Point(newX, newY);
             register.Show();
+            this.Hide();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -27,18 +38,25 @@ namespace FitnessManager
                 MessageBox.Show("User with this username does not exist, click on Register to create a new account!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!password.Equals(UserDatabaseManager.GetPassword(username)))
+            if (!Authenticator.VerifyPassword(password, UserDatabaseManager.GetPassword(username)))
             {
                 MessageBox.Show("Wrong password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            User user = UserDatabaseManager.GetUser(username);
-            user.LinkAccount(AccountDatabaseManager.GetAccount(user.Id));
-            user.Account.SetMetrics();
-            FitnessMetrics met = user.Account.Metrics;
+            User user = DatabaseManager.GetLoggedUser(username);
             MessageBox.Show("Loged in as " + username + ".", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+
+            MainForm main = new MainForm(user);
+            main.StartPosition = FormStartPosition.Manual;
+
+            int newX = this.Location.X;
+            int newY = this.Location.Y;
+
+            main.Location = new Point(newX, newY);
+            main.FormClosed += (s, args) => this.Close();
+            main.Show();
+            this.Hide();
         }
     }
 }

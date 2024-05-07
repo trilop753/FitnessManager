@@ -5,16 +5,36 @@ namespace FitnessManager.Classes.Models
 {
     public class FitnessMetrics
     {
+        public int UserId { get; set; }
         public int DailyCalories { get; private set; }
-        public int DailyCarbohydrates { get; private set; }
+        public int DailyCarbs { get; private set; }
         public int DailyFats { get; private set; }
         public int DailyProteins { get; private set; }
         public double BMI { get; private set; }
 
-        public FitnessMetrics(double height, double weight, int age, bool isMale, Lifestyle lifestyle, bool gainMuscles)
+        public FitnessMetrics(int userId, double height, double weight, int age, bool isMale, Lifestyle lifestyle, bool gainMuscles)
+        {
+            UserId = userId;
+            BMI = CalculateBMI(height, weight);
+            CalculateDailyCalories(height, weight, age, isMale, lifestyle, gainMuscles);
+            CalculateMacros(weight, lifestyle, gainMuscles);
+        }
+
+        private FitnessMetrics() { }
+
+        public void RecalculateMetrics(double height, double weight, int age, bool isMale, Lifestyle lifestyle, bool gainMuscles)
         {
             BMI = CalculateBMI(height, weight);
-            DailyCalories = CalculateDailyCalories(height, weight, age, isMale, lifestyle, gainMuscles);
+            CalculateDailyCalories(height, weight, age, isMale, lifestyle, gainMuscles);
+            CalculateMacros(weight, lifestyle, gainMuscles);
+        }
+
+        public void SetManualMetrics(int calories, int carbs, int fats, int proteins)
+        {
+            DailyCalories = calories;
+            DailyCarbs = carbs;
+            DailyFats = fats;
+            DailyProteins = proteins;
         }
 
         private double CalculateBMI(double height, double weight)
@@ -23,7 +43,7 @@ namespace FitnessManager.Classes.Models
             return bmi;
         }
 
-        private int CalculateDailyCalories(double height, double weight, int age, bool isMale, Lifestyle lifestyle, bool gainMuscles)
+        private void CalculateDailyCalories(double height, double weight, int age, bool isMale, Lifestyle lifestyle, bool gainMuscles)
         {
             double bmrConstant, weightMultiplier, heightMultiplier, ageMultiplier;
             if (isMale)
@@ -73,9 +93,30 @@ namespace FitnessManager.Classes.Models
                 amr -= CalorieConstants.CalorieSurplus;
             }
 
-            return (int) amr;
+            DailyCalories = (int) amr;
         }
 
-        //private int CalculateMacros()
+        private void CalculateMacros(double weight, Lifestyle lifestyle, bool gainMuscles)
+        {
+            DailyCarbs = (int) ((DailyCalories * (gainMuscles ? CalorieConstants.DailyBulkCarbsPercentage :
+                CalorieConstants.DailyCutCarbsPercentage)) / CalorieConstants.CarbsDivisor);
+
+            DailyFats = (int) ((DailyCalories * CalorieConstants.DailyFatsPercentage) / CalorieConstants.FatsDivisor);
+
+            switch (lifestyle)
+            {
+                case Lifestyle.SEDENTARY:
+                    DailyProteins = (int) (weight * CalorieConstants.SedentaryProteinMultiplier);
+                    break;
+                case Lifestyle.MEDIUM:
+                    DailyProteins = (int)(weight * CalorieConstants.MediumProteinMultiplier);
+                    break;
+                default:
+                    DailyProteins = (int)(weight * CalorieConstants.ActiveProteinMultiplier);
+                    break;
+            }
+
+
+        }
     }
 }

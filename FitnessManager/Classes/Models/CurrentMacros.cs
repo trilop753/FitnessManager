@@ -2,32 +2,28 @@
 {
     public class CurrentMacros
     {
-        public int Calories { get; private set; }
-        public int Carbohydrates { get; private set; }
-        public int Fats { get; private set; }
-        public int Proteins { get; private set; }
+        public int UserId { get; set; }
+        public int Calories { get; set; }
+        public int Carbs { get; set; }
+        public int Fats { get; set; }
+        public int Proteins { get; set; }
 
 
-        public CurrentMacros()
+        public CurrentMacros(int userId)
         {
             Calories = 0;
-            Carbohydrates = 0;
+            Carbs = 0;
             Fats = 0;
             Proteins = 0;
+            UserId = userId;
         }
 
-        private CurrentMacros(int calories, int carbohydrates, int fats, int proteins)
-        {
-            Calories = calories;
-            Carbohydrates = carbohydrates;
-            Fats = fats;
-            Proteins = proteins;
-        }
+        private CurrentMacros() { }
 
         public void AddMacros(int calories, int carbs, int fats, int proteins)
         {
             Calories += calories;
-            Carbohydrates += carbs;
+            Carbs += carbs;
             Fats += fats;
             Proteins += proteins;
         }
@@ -42,6 +38,12 @@
 
         //}
 
-
+        public void Reset()
+        {
+            Calories = 0;
+            Carbs = 0;
+            Fats = 0;
+            Proteins = 0;
+        }
     }
 }
