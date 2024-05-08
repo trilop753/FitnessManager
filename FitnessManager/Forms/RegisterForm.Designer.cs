@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             bigPanel = new Panel();
+            backButton = new Button();
             ageLabel = new Label();
             ageBox = new TextBox();
             wantPanel = new Panel();
@@ -62,6 +63,7 @@
             // bigPanel
             // 
             bigPanel.BackColor = Color.PaleGreen;
+            bigPanel.Controls.Add(backButton);
             bigPanel.Controls.Add(ageLabel);
             bigPanel.Controls.Add(ageBox);
             bigPanel.Controls.Add(wantPanel);
@@ -81,6 +83,16 @@
             bigPanel.Name = "bigPanel";
             bigPanel.Size = new Size(400, 287);
             bigPanel.TabIndex = 7;
+            // 
+            // backButton
+            // 
+            backButton.Location = new Point(3, 261);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(51, 23);
+            backButton.TabIndex = 101;
+            backButton.Text = "back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
             // 
             // ageLabel
             // 
@@ -317,7 +329,7 @@
             ClientSize = new Size(424, 311);
             Controls.Add(bigPanel);
             Name = "RegisterForm";
-            Text = "RegisterForm";
+            Text = "Register";
             FormClosed += RegisterForm_FormClosed;
             bigPanel.ResumeLayout(false);
             bigPanel.PerformLayout();
@@ -357,5 +369,6 @@
         private Panel lifestylePanel;
         private Label ageLabel;
         private TextBox ageBox;
+        private Button backButton;
     }
 }

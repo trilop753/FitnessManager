@@ -1,15 +1,32 @@
-﻿using FitnessManager.Classes.Models;
+﻿using FitnessManager.Classes.DatabaseAccess;
+using FitnessManager.Classes.Models;
 using System.Text;
+using System.Windows.Forms;
 
 namespace FitnessManager
 {
     public partial class AddForm : Form
     {
         private MainForm Main { get; set; }
+        private IEnumerable<Food> OriginalFoodsList { get; set; }
+        private Food? SelectedFood { get; set; }
         public AddForm(MainForm main)
         {
             Main = main;
+            Main.FormClosed += (s, args) => this.Close();
+            Main.Logout += (s, args) => this.Close();
             InitializeComponent();
+            SetOriginalFoodsList();
+            ShowFoodList(OriginalFoodsList);
+        }
+        private async void SetOriginalFoodsList()
+        {
+            OriginalFoodsList = await FoodsDatabaseManager.GetAllFoods();
+        }
+
+        private void ShowFoodList(IEnumerable<Food> foodsList)
+        {
+            foods.DataSource = foodsList;
         }
 
         private void addMacrosButton_Click(object sender, EventArgs e)
@@ -26,9 +43,29 @@ namespace FitnessManager
             }
 
             Main.User.Account.Macros.AddMacros(calories, carbs, fats, proteins);
+            AddFoodMacros();
             CheckGoalAchieved();
             Main.UpdateMacros();
             this.Close();
+        }
+
+        private void AddFoodMacros()
+        {
+            if (SelectedFood is null)
+            {
+                return;
+            }
+            int grams = 0;
+            if (gramsBox.Text.Length == 0)
+            {
+                return;
+            }
+            if (!int.TryParse(gramsBox.Text, out grams))
+            {
+                MessageBox.Show("Invalid input. Please enter valid number of grams.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Main.User.Account.Macros.AddMacros(SelectedFood, grams);
+
         }
 
         private void CheckGoalAchieved()
@@ -71,7 +108,34 @@ namespace FitnessManager
                 added = true;
                 completed.Append("proteins");
             }
-            MessageBox.Show("You have completed your daily " + completed.ToString() + " goal.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (added)
+            {
+                MessageBox.Show("You have completed your daily " + completed.ToString() + " goal.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = searchBox.Text.ToLower();
+            List<Food> searchedFoods = new List<Food>();
+
+
+            foreach (Food item in OriginalFoodsList)
+            {
+                if (item.Name.ToLower().Contains(searchTerm.ToLower()))
+                {
+                    searchedFoods.Add(item);
+                }
+            }
+            foods.DataSource = searchedFoods;
+        }
+
+        private void foods_SelectedChanged(object sender, EventArgs e)
+        {
+            if (foods.SelectedIndex != -1)
+            {
+                SelectedFood = (Food?) foods.SelectedValue;
+            }
         }
     }
 }

@@ -23,12 +23,12 @@ namespace FitnessManager
                 (int)(255 * scaleFactor),
                 0);
 
-            using (Pen trackPen = new Pen(Color.LightGray, 7))
+            using (Pen trackPen = new Pen(Color.LightGray, 10))
             {
                 e.Graphics.DrawArc(trackPen, rect, 0, 360);
             }
 
-            using (Pen progressPen = new Pen(color, 9))
+            using (Pen progressPen = new Pen(color, 11))
             {
                 e.Graphics.DrawArc(progressPen, rect, -90, angle);
             }

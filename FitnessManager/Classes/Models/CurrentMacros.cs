@@ -28,10 +28,11 @@
             Proteins += proteins;
         }
 
-        //public void AddMacros(Food food, float weight)
-        //{
-
-        //}
+        public void AddMacros(Food food, int grams)
+        {
+            double per100g = (double)grams / 100;
+            this.AddMacros((int)(food.Calories * per100g), (int)(food.Carbs * per100g), (int)(food.Fats * per100g), (int)(food.Proteins * per100g));
+        }
 
         //public void AddMacros(Activity activity, float time)
         //{

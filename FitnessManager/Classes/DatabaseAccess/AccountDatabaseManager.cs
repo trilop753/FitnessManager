@@ -8,7 +8,7 @@ namespace FitnessManager.Classes.DatabaseAccess
 {
     public static class AccountDatabaseManager
     {
-        public async static void AddAccount(Account acc)
+        public async static Task AddAccount(Account acc)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -16,20 +16,19 @@ namespace FitnessManager.Classes.DatabaseAccess
             }
         }
 
-        public static Account GetAccount(int userId)
+        public async static Task<Account> GetAccount(int userId)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                Account output = cnn.QuerySingle<Account>("SELECT * FROM Account WHERE UserId = @UserId", new { UserId = userId });
-                return output;
+                return await cnn.QuerySingleAsync<Account>("SELECT * FROM Account WHERE UserId = @UserId", new { UserId = userId });
             }
         }
 
-        public static void UpdateAccount(Account acc)
+        public async static Task UpdateAccount(Account acc)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE Account SET Height = @Height, Weight = @Weight, Age = @Age, Gender = @Gender, Lifestyle = @Lifestyle, GainMuscles = @GainMuscles WHERE UserId = @UserId", acc);
+                await cnn.ExecuteAsync("UPDATE Account SET Height = @Height, Weight = @Weight, Age = @Age, Gender = @Gender, Lifestyle = @Lifestyle, GainMuscles = @GainMuscles WHERE UserId = @UserId", acc);
             }
         }
 

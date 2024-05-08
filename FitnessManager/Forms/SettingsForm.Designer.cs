@@ -508,7 +508,7 @@
             ClientSize = new Size(238, 300);
             Controls.Add(tabControl1);
             Name = "SettingsForm";
-            Text = "SettingsForm";
+            Text = "Settings";
             wantPanel.ResumeLayout(false);
             wantPanel.PerformLayout();
             lifestylePanel.ResumeLayout(false);

@@ -47,5 +47,30 @@ namespace FitnessManager.Classes.Models
         {
             Macros = macros;
         }
+
+        public string GetBMI()
+        {
+            if (Metrics.BMI < 18)
+            {
+                return "Underweight";
+            }
+            if (Metrics.BMI < 25)
+            {
+                return "Normal";
+            }
+            if (Metrics.BMI < 30)
+            {
+                return "Overweight";
+            }
+            if (Metrics.BMI < 35)
+            {
+                return "Obesity I.";
+            }
+            if (Metrics.BMI < 40)
+            {
+                return "Obesity II.";
+            }
+            return "Obesity III.";
+        }
     }
 }

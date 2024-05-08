@@ -139,7 +139,7 @@
             ClientSize = new Size(304, 211);
             Controls.Add(panel1);
             Name = "StartForm";
-            Text = "Form1";
+            Text = "Login";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

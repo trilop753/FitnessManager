@@ -5,37 +5,46 @@ namespace FitnessManager.Classes.DatabaseAccess
     public static class DatabaseManager
     {
 
-        public static User GetLoggedUser(string username)
+        public async static Task<User> GetLoggedUser(string username)
         {
-            User user = UserDatabaseManager.GetUser(username);
-            Account account = AccountDatabaseManager.GetAccount(user.Id);
+            User user = await UserDatabaseManager.GetUser(username);
+
+            Task<Account> accountTask = AccountDatabaseManager.GetAccount(user.Id);
+            Task<FitnessMetrics> metricsTask = FitnessMetricsDatabaseManager.GetFitnessMetrics(user.Id);
+            Task<CurrentMacros> macrosTask = CurrentMacrosDatabaseManager.GetCurrentMacros(user.Id);
+
+            Account account = await accountTask;
+            FitnessMetrics metrics = await metricsTask;
+            CurrentMacros macros = await macrosTask;
+
             user.LinkAccount(account);
-            FitnessMetrics metrics = FitnessMetricsDatabaseManager.GetFitnessMetrics(user.Id);
             account.LinkMetrics(metrics);
-            CurrentMacros macros = CurrentMacrosDatabaseManager.GetCurrentMacros(user.Id);
             account.LinkMacros(macros);
+
             return user;
         }
 
-        public static void AddRegisteredUserAccount(User user)
+        public async static Task AddRegisteredUserAccount(User user)
         {
-            AccountDatabaseManager.AddAccount(user.Account);
-            FitnessMetricsDatabaseManager.AddFitnessMetrics(user.Account.Metrics);
-            CurrentMacrosDatabaseManager.AddCurrentMacros(user.Account.Macros);
-        }
-        public static void UpdateAccount(User user)
-        {
-            AccountDatabaseManager.UpdateAccount(user.Account);
+            Task accountTask = AccountDatabaseManager.AddAccount(user.Account);
+            Task metricsTask = FitnessMetricsDatabaseManager.AddFitnessMetrics(user.Account.Metrics);
+            Task macrosTask = CurrentMacrosDatabaseManager.AddCurrentMacros(user.Account.Macros);
+            await Task.WhenAll(accountTask, metricsTask, macrosTask);
         }
 
-        public static void UpdateMacros(User user)
+        public async static Task UpdateAccount(User user)
         {
-            CurrentMacrosDatabaseManager.UpdateCurrentMacros(user.Account.Macros);
+            await AccountDatabaseManager.UpdateAccount(user.Account);
         }
 
-        public static void UpdateMetrics(User user)
+        public async static Task UpdateMacros(User user)
         {
-            FitnessMetricsDatabaseManager.UpdateFitnessMetrics(user.Account.Metrics);
+            await CurrentMacrosDatabaseManager.UpdateCurrentMacros(user.Account.Macros);
+        }
+
+        public async static Task UpdateMetrics(User user)
+        {
+            await FitnessMetricsDatabaseManager.UpdateFitnessMetrics(user.Account.Metrics);
         }
     }
 }

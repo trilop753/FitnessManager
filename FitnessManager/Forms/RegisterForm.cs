@@ -14,9 +14,9 @@ namespace FitnessManager
             Starter = starter;
         }
 
-        private void registerButton_Click(object sender, EventArgs e)
+        private async void registerButton_Click(object sender, EventArgs e)
         {
-            if (!Register())
+            if (!await Register())
             {
                 return;
             }
@@ -41,7 +41,7 @@ namespace FitnessManager
             return true;
         }
 
-        private bool Register()
+        private async Task<bool> Register()
         {
             if (!CheckAllFilled())
             {
@@ -71,7 +71,7 @@ namespace FitnessManager
                 lifestyle = Lifestyle.ACTIVE;
             }
             bool gainMuscles = muscleButton.Checked ? true : false;
-            if (UserDatabaseManager.GetCount() != 0 && UserDatabaseManager.UserExists(usernameBox.Text))
+            if ((await UserDatabaseManager.GetCount() != 0) && await UserDatabaseManager.UserExists(usernameBox.Text))
             {
                 MessageBox.Show("User with this username already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -79,9 +79,9 @@ namespace FitnessManager
             string passwordHashed = Authenticator.HashPassword(passwordBox.Text);
 
             User registeredUser = new User(usernameBox.Text, passwordHashed);
-            UserDatabaseManager.AddUser(registeredUser);
+            await UserDatabaseManager.AddUser(registeredUser);
 
-            registeredUser = UserDatabaseManager.GetUser(registeredUser.UserName);
+            registeredUser = await UserDatabaseManager.GetUser(registeredUser.UserName);
 
             Account newAccount = new Account(registeredUser.Id, height, weight, age, isMale, lifestyle, gainMuscles);
 
@@ -89,13 +89,19 @@ namespace FitnessManager
             newAccount.SetMacros();
             registeredUser.LinkAccount(newAccount);
 
-            DatabaseManager.AddRegisteredUserAccount(registeredUser);
+            await DatabaseManager.AddRegisteredUserAccount(registeredUser);
             return true;
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Starter.Show();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Starter.Show();
+            this.Close();
         }
     }
 }

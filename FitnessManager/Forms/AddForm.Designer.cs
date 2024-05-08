@@ -29,19 +29,23 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            addCaloriesBox = new TextBox();
-            addCarbsBox = new TextBox();
+            gramsBox = new TextBox();
+            searchBox = new TextBox();
+            foods = new ListBox();
+            addMacrosButton = new Button();
             addProteinsBox = new TextBox();
             addFatsBox = new TextBox();
-            addMacrosButton = new Button();
-            label1 = new Label();
+            addCarbsBox = new TextBox();
+            addCaloriesBox = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.PaleGreen;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(gramsBox);
+            panel1.Controls.Add(searchBox);
+            panel1.Controls.Add(foods);
             panel1.Controls.Add(addMacrosButton);
             panel1.Controls.Add(addProteinsBox);
             panel1.Controls.Add(addFatsBox);
@@ -52,21 +56,43 @@
             panel1.Size = new Size(295, 164);
             panel1.TabIndex = 0;
             // 
-            // addCaloriesBox
+            // gramsBox
             // 
-            addCaloriesBox.Location = new Point(3, 3);
-            addCaloriesBox.Name = "addCaloriesBox";
-            addCaloriesBox.PlaceholderText = "Calories";
-            addCaloriesBox.Size = new Size(100, 23);
-            addCaloriesBox.TabIndex = 0;
+            gramsBox.Font = new Font("Segoe UI", 9F);
+            gramsBox.Location = new Point(230, 2);
+            gramsBox.Name = "gramsBox";
+            gramsBox.PlaceholderText = "0 g";
+            gramsBox.Size = new Size(62, 23);
+            gramsBox.TabIndex = 8;
             // 
-            // addCarbsBox
+            // searchBox
             // 
-            addCarbsBox.Location = new Point(3, 32);
-            addCarbsBox.Name = "addCarbsBox";
-            addCarbsBox.PlaceholderText = "Carbohydrates";
-            addCarbsBox.Size = new Size(100, 23);
-            addCarbsBox.TabIndex = 1;
+            searchBox.Location = new Point(124, 2);
+            searchBox.Name = "searchBox";
+            searchBox.PlaceholderText = "search";
+            searchBox.Size = new Size(100, 23);
+            searchBox.TabIndex = 7;
+            searchBox.TextChanged += searchBox_TextChanged;
+            // 
+            // foods
+            // 
+            foods.FormattingEnabled = true;
+            foods.ItemHeight = 15;
+            foods.Location = new Point(124, 32);
+            foods.Name = "foods";
+            foods.Size = new Size(168, 124);
+            foods.TabIndex = 6;
+            foods.SelectedIndexChanged += foods_SelectedChanged;
+            // 
+            // addMacrosButton
+            // 
+            addMacrosButton.Location = new Point(3, 119);
+            addMacrosButton.Name = "addMacrosButton";
+            addMacrosButton.Size = new Size(100, 40);
+            addMacrosButton.TabIndex = 4;
+            addMacrosButton.Text = "Add";
+            addMacrosButton.UseVisualStyleBackColor = true;
+            addMacrosButton.Click += addMacrosButton_Click;
             // 
             // addProteinsBox
             // 
@@ -84,24 +110,21 @@
             addFatsBox.Size = new Size(100, 23);
             addFatsBox.TabIndex = 2;
             // 
-            // addMacrosButton
+            // addCarbsBox
             // 
-            addMacrosButton.Location = new Point(3, 119);
-            addMacrosButton.Name = "addMacrosButton";
-            addMacrosButton.Size = new Size(100, 40);
-            addMacrosButton.TabIndex = 4;
-            addMacrosButton.Text = "Add macros";
-            addMacrosButton.UseVisualStyleBackColor = true;
-            addMacrosButton.Click += addMacrosButton_Click;
+            addCarbsBox.Location = new Point(3, 32);
+            addCarbsBox.Name = "addCarbsBox";
+            addCarbsBox.PlaceholderText = "Carbohydrates";
+            addCarbsBox.Size = new Size(100, 23);
+            addCarbsBox.TabIndex = 1;
             // 
-            // label1
+            // addCaloriesBox
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(154, 69);
-            label1.Name = "label1";
-            label1.Size = new Size(109, 15);
-            label1.TabIndex = 5;
-            label1.Text = "TBA: food database";
+            addCaloriesBox.Location = new Point(3, 3);
+            addCaloriesBox.Name = "addCaloriesBox";
+            addCaloriesBox.PlaceholderText = "Calories";
+            addCaloriesBox.Size = new Size(100, 23);
+            addCaloriesBox.TabIndex = 0;
             // 
             // AddForm
             // 
@@ -111,7 +134,7 @@
             ClientSize = new Size(319, 184);
             Controls.Add(panel1);
             Name = "AddForm";
-            Text = "AddForm";
+            Text = "Adding macros";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -125,6 +148,8 @@
         private TextBox addFatsBox;
         private TextBox addCarbsBox;
         private Button addMacrosButton;
-        private Label label1;
+        private ListBox foods;
+        private TextBox searchBox;
+        private TextBox gramsBox;
     }
 }

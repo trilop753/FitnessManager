@@ -10,11 +10,13 @@ namespace FitnessManager
         private int[] macrosSettings = new int[4];
         public SettingsForm(MainForm main)
         {
-            Main = main;
             InitializeComponent();
+            Main = main;
+            Main.FormClosed += (s, args) => this.Close();
+            Main.Logout += (s, args) => this.Close();
             InitializeOldSettings();
         }
-        private void accountUpdateButton_Click(object sender, EventArgs e)
+        private async void accountUpdateButton_Click(object sender, EventArgs e)
         {
             double height = Main.User.Account.Height;
             double weight = Main.User.Account.Weight;
@@ -45,12 +47,13 @@ namespace FitnessManager
                 Main.User.Account.Lifestyle = Lifestyle.ACTIVE;
             }
             Main.User.Account.GainMuscles = muscleButton.Checked ? true : false;
-            DatabaseManager.UpdateAccount(Main.User);
+            Task accountUpdateTask = DatabaseManager.UpdateAccount(Main.User);
             Account account = Main.User.Account;
             account.Metrics.RecalculateMetrics(account.Height, account.Weight, account.Age, account.Gender, account.Lifestyle, account.GainMuscles);
-            DatabaseManager.UpdateMetrics(Main.User);
+            Task metricsUpdateTask = DatabaseManager.UpdateMetrics(Main.User);
             Main.UpdateMacros();
             MessageBox.Show("Settings saved successfully. Recalculating recommended macronutrients.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            await Task.WhenAll(accountUpdateTask, metricsUpdateTask);
             this.Close();
         }
 
@@ -152,12 +155,13 @@ namespace FitnessManager
             updateMacroLabels();
         }
 
-        private void macrosUpdateButton_Click(object sender, EventArgs e)
+        private async void macrosUpdateButton_Click(object sender, EventArgs e)
         {
             Main.User.Account.Metrics.SetManualMetrics(macrosSettings[0], macrosSettings[1], macrosSettings[2], macrosSettings[3]);
-            DatabaseManager.UpdateMetrics(Main.User);
+            Task metricsUpdateTask = DatabaseManager.UpdateMetrics(Main.User);
             Main.UpdateMacros();
             MessageBox.Show("Settings saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            await metricsUpdateTask;
             this.Close();
         }
     }
